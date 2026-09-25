@@ -15,12 +15,9 @@
   --gold:#d4a843;--gold2:#f0c060;--gold-bg:#1a1200;--gold-b:#7a5a10;
   --green:#3dba6f;--green-bg:#041a0e;--green-b:#145a30;
   --red:#e05050;--red-bg:#1a0404;--red-b:#7a2020;
-  --blue:#4080d0;--blue-bg:#0a1a30;--blue-b:#204060;
   --radius:14px;--r:10px;
 }
 body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;direction:rtl}
-
-/* LOGIN */
 #login-overlay{position:fixed;inset:0;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;z-index:999;backdrop-filter:blur(6px)}
 .login-box{background:var(--bg2);border:1px solid var(--gold-b);border-radius:20px;padding:2.5rem 2rem;width:100%;max-width:380px;text-align:center}
 .login-icon{font-size:48px;margin-bottom:12px}
@@ -31,45 +28,34 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
 .login-btn{width:100%;padding:12px;background:var(--gold);color:#000;border:none;border-radius:var(--r);font-size:16px;font-weight:700;cursor:pointer;transition:.15s}
 .login-btn:hover{background:var(--gold2)}
 .login-err{color:var(--red);font-size:13px;margin-top:8px;display:none}
-
-/* HEADER */
 .header{background:var(--bg2);border-bottom:2px solid var(--gold-b);padding:14px 20px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:50}
 .h-logo{font-size:26px}
 .h-title{flex:1}
 .h-title h1{font-size:17px;font-weight:700;color:var(--gold2)}
 .h-title p{font-size:11px;color:var(--text2);margin-top:2px}
-.h-badge{background:var(--red-bg);color:var(--red);border:1px solid var(--red-b);border-radius:8px;padding:5px 12px;font-size:12px;font-weight:700;cursor:pointer;transition:.15s}
-.h-badge:hover{background:var(--red);color:#fff}
-
-/* MAIN */
+.h-conn{font-size:11px;padding:4px 10px;border-radius:8px;font-weight:700}
+.h-conn.ok{background:var(--green-bg);color:var(--green);border:1px solid var(--green-b)}
+.h-conn.err{background:var(--red-bg);color:var(--red);border:1px solid var(--red-b)}
+.h-conn.wait{background:var(--bg3);color:var(--text3);border:1px solid var(--border2)}
+.logout-btn{background:var(--red-bg);color:var(--red);border:1px solid var(--red-b);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;transition:.15s}
+.logout-btn:hover{background:var(--red);color:#fff}
 .main{padding:16px;max-width:800px;margin:0 auto}
-
-/* ALERT */
-.alert{padding:10px 14px;border-radius:var(--r);font-size:13px;margin-bottom:14px;display:flex;align-items:center;gap:8px;font-weight:600;display:none}
+.alert{padding:10px 14px;border-radius:var(--r);font-size:13px;margin-bottom:14px;display:none;align-items:center;gap:8px;font-weight:600}
 .alert-s{background:var(--green-bg);color:var(--green);border:1px solid var(--green-b)}
 .alert-e{background:var(--red-bg);color:var(--red);border:1px solid var(--red-b)}
-
-/* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
 .stat-box{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:14px;text-align:center}
 .stat-num{font-size:24px;font-weight:700;color:var(--gold2);font-family:monospace}
 .stat-lbl{font-size:11px;color:var(--text2);margin-top:4px}
-
-/* SECTION */
 .section{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;margin-bottom:14px}
 .section-hdr{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg2)}
 .section-title{font-size:14px;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:8px}
 .section-body{padding:16px}
-
-/* PAIR BLOCK */
 .pair-block{background:var(--bg);border:1px solid var(--border2);border-radius:var(--r);padding:14px;margin-bottom:12px}
 .pair-block:last-child{margin-bottom:0}
 .pb-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
 .pb-flag{font-size:18px}
 .pb-name{font-size:14px;font-weight:700;color:var(--gold);flex:1}
-.pb-status{font-size:11px;padding:3px 8px;border-radius:8px;font-weight:700}
-.pb-status.live{background:var(--green-bg);color:var(--green);border:1px solid var(--green-b)}
-.pb-status.draft{background:var(--bg3);color:var(--text3);border:1px solid var(--border)}
 .pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .inp-group{display:flex;flex-direction:column;gap:6px}
 .inp-label{font-size:11px;color:var(--text2);font-weight:700;letter-spacing:.5px}
@@ -80,11 +66,12 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
 .quick-btns{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
 .qb{padding:4px 10px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:.15s}
 .qb:hover{background:var(--gold-bg);border-color:var(--gold-b);color:var(--gold)}
-.apply-btn{width:100%;margin-top:12px;padding:10px;background:var(--gold);color:#000;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:.15s}
+.apply-btn{width:100%;margin-top:12px;padding:12px;background:var(--gold);color:#000;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:.15s}
 .apply-btn:hover{background:var(--gold2)}
 .apply-btn:active{transform:scale(.98)}
-
-/* HISTORY ADMIN */
+.apply-btn.green{background:var(--green);color:#000}
+.apply-btn.green:hover{background:#4dca7f}
+.apply-btn:disabled{opacity:.5;cursor:not-allowed}
 .hist-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px}
 .hist-item:last-child{border-bottom:none}
 .hi-time{color:var(--text3);min-width:50px;font-family:monospace}
@@ -92,38 +79,23 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
 .hi-vals{flex:1;color:var(--text2)}
 .hi-del{background:var(--red-bg);border:1px solid var(--red-b);border-radius:6px;padding:3px 7px;font-size:11px;color:var(--red);cursor:pointer;transition:.15s}
 .hi-del:hover{background:var(--red);color:#fff}
-
-/* SETTINGS */
 .field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
 .field label{font-size:12px;color:var(--text2);font-weight:700}
-.field input,.field select,.field textarea{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);padding:8px 12px;font-size:14px;color:var(--text);outline:none;transition:.15s;width:100%}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
-.toggle-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
-.toggle-row:last-child{border-bottom:none}
-.tl-info{flex:1}
-.tl-name{font-size:13px;color:var(--text)}
-.tl-sub{font-size:11px;color:var(--text3);margin-top:2px}
-.toggle{position:relative;width:42px;height:24px;flex-shrink:0}
-.toggle input{opacity:0;width:0;height:0}
-.toggle-sl{position:absolute;inset:0;border-radius:12px;background:var(--bg3);cursor:pointer;transition:.2s;border:1px solid var(--border2)}
-.toggle-sl::before{content:'';position:absolute;width:18px;height:18px;border-radius:50%;background:var(--text3);left:2px;top:2px;transition:.2s}
-.toggle input:checked+.toggle-sl{background:var(--green);border-color:var(--green)}
-.toggle input:checked+.toggle-sl::before{transform:translateX(18px);background:#fff}
+.field input,.field select{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);padding:8px 12px;font-size:14px;color:var(--text);outline:none;transition:.15s;width:100%}
+.field input:focus,.field select:focus{border-color:var(--gold)}
 .btn{padding:8px 16px;border-radius:var(--r);border:none;cursor:pointer;font-size:13px;font-weight:700;transition:.15s;display:inline-flex;align-items:center;gap:6px}
-.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border2)}
-.btn-ghost:hover{border-color:var(--border2);color:var(--text);background:var(--bg3)}
-.btn-danger{background:var(--red-bg);color:var(--red);border:1px solid var(--red-b)}
-.btn-danger:hover{background:var(--red);color:#fff}
 .btn-primary{background:var(--gold);color:#000}
 .btn-primary:hover{background:var(--gold2)}
-
+.btn-danger{background:var(--red-bg);color:var(--red);border:1px solid var(--red-b)}
+.btn-danger:hover{background:var(--red);color:#fff}
 .divider{height:1px;background:var(--border);margin:12px 0}
 .no-hist{text-align:center;padding:20px;color:var(--text3);font-size:13px}
+.saving-spinner{display:none;width:16px;height:16px;border:2px solid rgba(0,0,0,.3);border-top-color:#000;border-radius:50%;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
 
-<!-- LOGIN -->
 <div id="login-overlay">
   <div class="login-box">
     <div class="login-icon">🔐</div>
@@ -135,19 +107,19 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
   </div>
 </div>
 
-<!-- HEADER -->
 <div class="header">
   <div class="h-logo">⚙️</div>
   <div class="h-title">
     <h1>لوحة الإدارة</h1>
-    <p id="h-sub">اتحاد الصرافين في إدلب • آخر تحديث: —</p>
+    <p id="h-sub">اتحاد الصرافين في إدلب</p>
   </div>
-  <button class="h-badge" onclick="doLogout()"><i class="ti ti-logout" aria-hidden="true"></i> خروج</button>
+  <span class="h-conn wait" id="conn-badge"><i class="ti ti-loader" aria-hidden="true"></i> جاري الاتصال</span>
+  <button class="logout-btn" onclick="doLogout()"><i class="ti ti-logout" aria-hidden="true"></i> خروج</button>
 </div>
 
 <div class="main" id="main-content" style="display:none">
-  <div class="alert alert-s" id="alert-ok"><i class="ti ti-check" aria-hidden="true"></i> <span id="alert-ok-txt">تم بنجاح</span></div>
-  <div class="alert alert-e" id="alert-err"><i class="ti ti-alert-triangle" aria-hidden="true"></i> <span id="alert-err-txt">خطأ</span></div>
+  <div class="alert alert-s" id="alert-ok"><i class="ti ti-check" aria-hidden="true"></i> <span id="alert-ok-txt"></span></div>
+  <div class="alert alert-e" id="alert-err"><i class="ti ti-alert-triangle" aria-hidden="true"></i> <span id="alert-err-txt"></span></div>
 
   <!-- STATS -->
   <div class="stats-row">
@@ -161,7 +133,7 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
   <div class="section">
     <div class="section-hdr">
       <div class="section-title"><i class="ti ti-currency-dollar" aria-hidden="true"></i> إدخال أسعار الصرف</div>
-      <span style="font-size:11px;color:var(--text3)" id="last-saved-time">—</span>
+      <span style="font-size:11px;color:var(--text3)" id="last-saved-lbl">آخر حفظ: —</span>
     </div>
     <div class="section-body">
 
@@ -170,19 +142,18 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
         <div class="pb-header">
           <span class="pb-flag">🇺🇸→🇹🇷</span>
           <span class="pb-name">دولار / ليرة تركية (USD/TRY)</span>
-          <span class="pb-status live">مباشر</span>
         </div>
         <div class="pb-grid">
           <div class="inp-group">
-            <div class="inp-label">سعر الشراء (أنت تشتري)</div>
+            <div class="inp-label">سعر الشراء</div>
             <div class="inp-wrap">
               <span class="inp-prefix">₺</span>
-              <input type="number" class="rate-inp" id="inp-usdtry-buy" placeholder="49.40" step="0.01" min="0" oninput="syncTRY()">
+              <input type="number" class="rate-inp" id="inp-usdtry-buy" placeholder="49.40" step="0.01" min="0" oninput="autoSell('usdtry')">
             </div>
             <div class="quick-btns" id="qb-usdtry-buy"></div>
           </div>
           <div class="inp-group">
-            <div class="inp-label">سعر البيع (أنت تبيع)</div>
+            <div class="inp-label">سعر البيع</div>
             <div class="inp-wrap">
               <span class="inp-prefix">₺</span>
               <input type="number" class="rate-inp" id="inp-usdtry-sell" placeholder="48.40" step="0.01" min="0">
@@ -190,8 +161,10 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
             <div class="quick-btns" id="qb-usdtry-sell"></div>
           </div>
         </div>
-        <button class="apply-btn" onclick="saveRates('usdtry')">
-          <i class="ti ti-send" aria-hidden="true"></i> نشر سعر الدولار/الليرة التركية
+        <button class="apply-btn" id="btn-usdtry" onclick="saveRates('usdtry')">
+          <div class="saving-spinner" id="sp-usdtry"></div>
+          <i class="ti ti-send" id="ico-usdtry" aria-hidden="true"></i>
+          نشر USD/TRY الآن
         </button>
       </div>
 
@@ -200,14 +173,13 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
         <div class="pb-header">
           <span class="pb-flag">🇺🇸→🇸🇾</span>
           <span class="pb-name">دولار / ليرة سورية (USD/SYP)</span>
-          <span class="pb-status live">مباشر</span>
         </div>
         <div class="pb-grid">
           <div class="inp-group">
             <div class="inp-label">سعر الشراء</div>
             <div class="inp-wrap">
               <span class="inp-prefix">£</span>
-              <input type="number" class="rate-inp" id="inp-usdsyp-buy" placeholder="13200" step="50" min="0">
+              <input type="number" class="rate-inp" id="inp-usdsyp-buy" placeholder="13200" step="50" min="0" oninput="autoSell('usdsyp')">
             </div>
             <div class="quick-btns" id="qb-usdsyp-buy"></div>
           </div>
@@ -220,13 +192,17 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
             <div class="quick-btns" id="qb-usdsyp-sell"></div>
           </div>
         </div>
-        <button class="apply-btn" onclick="saveRates('usdsyp')">
-          <i class="ti ti-send" aria-hidden="true"></i> نشر سعر الدولار/الليرة السورية
+        <button class="apply-btn" id="btn-usdsyp" onclick="saveRates('usdsyp')">
+          <div class="saving-spinner" id="sp-usdsyp"></div>
+          <i class="ti ti-send" id="ico-usdsyp" aria-hidden="true"></i>
+          نشر USD/SYP الآن
         </button>
       </div>
 
-      <button class="apply-btn" onclick="saveAll()" style="background:var(--green);margin-top:4px">
-        <i class="ti ti-check-all" aria-hidden="true"></i> نشر جميع الأسعار دفعة واحدة
+      <button class="apply-btn green" id="btn-all" onclick="saveAll()">
+        <div class="saving-spinner" id="sp-all"></div>
+        <i class="ti ti-check-all" id="ico-all" aria-hidden="true"></i>
+        نشر جميع الأسعار دفعة واحدة
       </button>
     </div>
   </div>
@@ -235,9 +211,9 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
   <div class="section">
     <div class="section-hdr">
       <div class="section-title"><i class="ti ti-clock" aria-hidden="true"></i> سجل التحديثات</div>
-      <button class="btn btn-danger" onclick="clearHist()" style="font-size:11px;padding:4px 10px"><i class="ti ti-trash" aria-hidden="true"></i> مسح الكل</button>
+      <button class="btn btn-danger" onclick="clearHist()" style="font-size:11px;padding:4px 10px"><i class="ti ti-trash" aria-hidden="true"></i> مسح</button>
     </div>
-    <div class="section-body" id="hist-admin" style="padding:0 16px"><div class="no-hist">لا توجد سجلات</div></div>
+    <div style="padding:0 16px" id="hist-admin"><div class="no-hist">لا توجد سجلات</div></div>
   </div>
 
   <!-- SETTINGS -->
@@ -248,228 +224,239 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
     <div class="section-body">
       <div class="field">
         <label>تغيير كلمة المرور</label>
-        <input type="password" id="new-pw" placeholder="كلمة مرور جديدة">
+        <input type="password" id="new-pw" placeholder="كلمة مرور جديدة (4 أحرف على الأقل)">
       </div>
       <button class="btn btn-primary" onclick="changePw()"><i class="ti ti-key" aria-hidden="true"></i> تغيير كلمة المرور</button>
-      <div class="divider"></div>
-      <div class="toggle-row">
-        <div class="tl-info"><div class="tl-name">إظهار سعر الشراء والبيع معاً</div><div class="tl-sub">عرض كلا السعرين في الموقع</div></div>
-        <label class="toggle"><input type="checkbox" id="tog-buysell" checked><span class="toggle-sl"></span></label>
-      </div>
-      <div class="toggle-row">
-        <div class="tl-info"><div class="tl-name">الشريط المتحرك</div><div class="tl-sub">عرض الأسعار في الأعلى</div></div>
-        <label class="toggle"><input type="checkbox" id="tog-ticker" checked><span class="toggle-sl"></span></label>
-      </div>
-      <div class="toggle-row">
-        <div class="tl-info"><div class="tl-name">حاسبة التحويل</div></div>
-        <label class="toggle"><input type="checkbox" id="tog-calc" checked><span class="toggle-sl"></span></label>
-      </div>
-      <div style="margin-top:14px">
-        <button class="btn btn-primary" onclick="saveSettings()" style="width:100%"><i class="ti ti-check" aria-hidden="true"></i> حفظ الإعدادات</button>
-      </div>
     </div>
   </div>
 </div>
 
-<script>
-const STORE_KEY = 'idlib_rates_v2';
-const HIST_KEY = STORE_KEY + '_hist';
-const PW_KEY = 'idlib_admin_pw';
-const SET_KEY = 'idlib_settings_v1';
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, set, get, onValue, remove, push } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCVJclfpEp9Jo9879C3RfZKiEdBUibwrxI",
+  authDomain: "ahmad-662ee.firebaseapp.com",
+  databaseURL: "https://ahmad-662ee-default-rtdb.firebaseio.com",
+  projectId: "ahmad-662ee",
+  storageBucket: "ahmad-662ee.firebasestorage.app",
+  messagingSenderId: "740891153734",
+  appId: "1:740891153734:web:039134fdcba74c60618147"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const PW_KEY = 'idlib_admin_pw_v2';
 let state = { pw: localStorage.getItem(PW_KEY) || 'admin123', loggedIn: false };
+let currentRates = {};
+
+// ── CONNECTION STATUS ──
+onValue(ref(db, '.info/connected'), snap => {
+  const badge = document.getElementById('conn-badge');
+  if (snap.val()) {
+    badge.className = 'h-conn ok';
+    badge.innerHTML = '<i class="ti ti-wifi" aria-hidden="true"></i> متصل بـ Firebase';
+  } else {
+    badge.className = 'h-conn err';
+    badge.innerHTML = '<i class="ti ti-wifi-off" aria-hidden="true"></i> غير متصل';
+  }
+});
 
 // ── LOGIN ──
-function doLogin() {
+window.doLogin = function() {
   const v = document.getElementById('pw-inp').value;
   if (v === state.pw) {
     state.loggedIn = true;
     document.getElementById('login-overlay').style.display = 'none';
     document.getElementById('main-content').style.display = 'block';
-    loadCurrent(); renderHist(); buildQuickBtns(); loadSettings();
+    loadCurrentRates();
+    listenHistory();
   } else {
     document.getElementById('pw-err').style.display = 'block';
     document.getElementById('pw-inp').value = '';
   }
-}
-function doLogout() { state.loggedIn = false; location.reload(); }
+};
+window.doLogout = function() { state.loggedIn = false; location.reload(); };
 
-// ── LOAD CURRENT ──
-function loadCurrent() {
-  const raw = localStorage.getItem(STORE_KEY);
-  if (!raw) return;
-  const r = JSON.parse(raw);
-  document.getElementById('inp-usdtry-buy').value = r.usdtry_buy || '';
-  document.getElementById('inp-usdtry-sell').value = r.usdtry_sell || '';
-  document.getElementById('inp-usdsyp-buy').value = r.usdsyp_buy || '';
-  document.getElementById('inp-usdsyp-sell').value = r.usdsyp_sell || '';
-  document.getElementById('st-usdtry-buy').textContent = r.usdtry_buy ? parseFloat(r.usdtry_buy).toFixed(2) : '—';
-  document.getElementById('st-usdtry-sell').textContent = r.usdtry_sell ? parseFloat(r.usdtry_sell).toFixed(2) : '—';
-  document.getElementById('st-usdsyp-buy').textContent = r.usdsyp_buy ? Math.round(r.usdsyp_buy).toLocaleString() : '—';
-  document.getElementById('st-usdsyp-sell').textContent = r.usdsyp_sell ? Math.round(r.usdsyp_sell).toLocaleString() : '—';
-  if (r.updatedAt) {
-    const d = new Date(r.updatedAt);
-    const ts = d.toLocaleString('ar-SY',{hour:'2-digit',minute:'2-digit',second:'2-digit',day:'2-digit',month:'short',hour12:true});
-    document.getElementById('last-saved-time').textContent = 'محفوظ: ' + ts;
-    document.getElementById('h-sub').textContent = 'اتحاد الصرافين — إدلب • آخر تحديث: ' + ts;
-  }
-  buildQuickBtns();
+// ── LOAD CURRENT RATES ──
+function loadCurrentRates() {
+  onValue(ref(db, 'rates'), snap => {
+    const r = snap.val();
+    if (!r) return;
+    currentRates = r;
+    document.getElementById('inp-usdtry-buy').value = r.usdtry_buy || '';
+    document.getElementById('inp-usdtry-sell').value = r.usdtry_sell || '';
+    document.getElementById('inp-usdsyp-buy').value = r.usdsyp_buy || '';
+    document.getElementById('inp-usdsyp-sell').value = r.usdsyp_sell || '';
+    document.getElementById('st-usdtry-buy').textContent = r.usdtry_buy ? parseFloat(r.usdtry_buy).toFixed(2) : '—';
+    document.getElementById('st-usdtry-sell').textContent = r.usdtry_sell ? parseFloat(r.usdtry_sell).toFixed(2) : '—';
+    document.getElementById('st-usdsyp-buy').textContent = r.usdsyp_buy ? Math.round(r.usdsyp_buy).toLocaleString() : '—';
+    document.getElementById('st-usdsyp-sell').textContent = r.usdsyp_sell ? Math.round(r.usdsyp_sell).toLocaleString() : '—';
+    if (r.updatedAt) {
+      const d = new Date(r.updatedAt);
+      document.getElementById('last-saved-lbl').textContent = 'آخر حفظ: ' + d.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+      document.getElementById('h-sub').textContent = 'اتحاد الصرافين — إدلب • آخر تحديث: ' + d.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
+    }
+    buildQuickBtns(r);
+  });
 }
 
-// ── QUICK BUTTONS ──
-function buildQuickBtns() {
-  const r = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
-  const pairs = [
-    { id: 'qb-usdtry-buy', inp: 'inp-usdtry-buy', cur: r.usdtry_buy, step: 0.1, fmt: v => parseFloat(v).toFixed(2) },
-    { id: 'qb-usdtry-sell', inp: 'inp-usdtry-sell', cur: r.usdtry_sell, step: 0.1, fmt: v => parseFloat(v).toFixed(2) },
-    { id: 'qb-usdsyp-buy', inp: 'inp-usdsyp-buy', cur: r.usdsyp_buy, step: 50, fmt: v => Math.round(v).toLocaleString() },
-    { id: 'qb-usdsyp-sell', inp: 'inp-usdsyp-sell', cur: r.usdsyp_sell, step: 50, fmt: v => Math.round(v).toLocaleString() },
+function buildQuickBtns(r) {
+  const configs = [
+    { id: 'qb-usdtry-buy', inp: 'inp-usdtry-buy', cur: r.usdtry_buy, step: 0.1 },
+    { id: 'qb-usdtry-sell', inp: 'inp-usdtry-sell', cur: r.usdtry_sell, step: 0.1 },
+    { id: 'qb-usdsyp-buy', inp: 'inp-usdsyp-buy', cur: r.usdsyp_buy, step: 50 },
+    { id: 'qb-usdsyp-sell', inp: 'inp-usdsyp-sell', cur: r.usdsyp_sell, step: 50 },
   ];
-  for (const p of pairs) {
-    const el = document.getElementById(p.id);
+  for (const c of configs) {
+    const el = document.getElementById(c.id);
     if (!el) continue;
-    const cur = parseFloat(p.cur) || 0;
-    el.innerHTML = [-2,-1,+1,+2].map(d => {
-      const val = cur + d * p.step;
+    const cur = parseFloat(c.cur) || 0;
+    el.innerHTML = [-2,-1,1,2].map(d => {
+      const val = +(cur + d * c.step).toFixed(c.step < 1 ? 2 : 0);
       if (val <= 0) return '';
-      return `<button class="qb" onclick="document.getElementById('${p.inp}').value=${val.toFixed(p.step<1?2:0)}">${d>0?'+'+d*p.step:d*p.step}</button>`;
+      return `<button class="qb" onclick="document.getElementById('${c.inp}').value='${val}'">${d > 0 ? '+' : ''}${(d * c.step).toFixed(c.step < 1 ? 1 : 0)}</button>`;
     }).join('');
   }
 }
 
-// ── SYNC TRY (auto-calc sell from buy with spread) ──
-function syncTRY() {
-  const buy = parseFloat(document.getElementById('inp-usdtry-buy').value);
+// AUTO SELL PRICE
+window.autoSell = function(pair) {
+  const buy = parseFloat(document.getElementById(`inp-${pair}-buy`).value);
   if (isNaN(buy)) return;
-  const sell = (buy - 1.0).toFixed(2);
-  document.getElementById('inp-usdtry-sell').value = sell > 0 ? sell : '';
+  const spread = pair === 'usdtry' ? 1.0 : 100;
+  const sellEl = document.getElementById(`inp-${pair}-sell`);
+  if (!sellEl.value || parseFloat(sellEl.value) === 0) {
+    sellEl.value = pair === 'usdtry' ? (buy - spread).toFixed(2) : Math.round(buy - spread);
+  }
+};
+
+// ── SAVE TO FIREBASE ──
+async function pushToFirebase(data) {
+  await set(ref(db, 'rates'), data);
 }
 
-// ── SAVE ──
-function getRaw() {
-  const raw = localStorage.getItem(STORE_KEY);
-  return raw ? JSON.parse(raw) : {};
+async function addHistory(pair, buy, sell, dir) {
+  await push(ref(db, 'history'), { pair, buy, sell, dir, time: new Date().toISOString() });
 }
-function addHist(pair, buy, sell, prev_buy, prev_sell) {
-  const hist = JSON.parse(localStorage.getItem(HIST_KEY) || '[]');
-  const prev_b = parseFloat(prev_buy) || 0;
-  hist.unshift({ pair, buy, sell, time: new Date().toISOString(), dir: buy >= prev_b ? 'up' : 'down' });
-  if (hist.length > 100) hist.length = 100;
-  localStorage.setItem(HIST_KEY, JSON.stringify(hist));
+
+function setLoading(id, on) {
+  document.getElementById(`btn-${id}`).disabled = on;
+  document.getElementById(`sp-${id}`).style.display = on ? 'block' : 'none';
+  document.getElementById(`ico-${id}`).style.display = on ? 'none' : '';
 }
-function saveRates(pair) {
-  const prev = getRaw();
-  let upd = { ...prev, updatedAt: new Date().toISOString() };
-  if (pair === 'usdtry' || pair === 'all') {
-    const buy = parseFloat(document.getElementById('inp-usdtry-buy').value);
-    const sell = parseFloat(document.getElementById('inp-usdtry-sell').value);
-    if (isNaN(buy) || buy <= 0) { showErr('أدخل سعر الشراء لـ USD/TRY'); return; }
-    addHist('usdtry', buy, sell || buy, prev.usdtry_buy, prev.usdtry_sell);
-    upd.usdtry_buy_prev = prev.usdtry_buy || buy;
-    upd.usdtry_sell_prev = prev.usdtry_sell || sell;
-    upd.usdtry_buy = buy;
-    upd.usdtry_sell = sell || buy;
-  }
-  if (pair === 'usdsyp' || pair === 'all') {
-    const buy = parseFloat(document.getElementById('inp-usdsyp-buy').value);
-    const sell = parseFloat(document.getElementById('inp-usdsyp-sell').value);
-    if (isNaN(buy) || buy <= 0) { showErr('أدخل سعر الشراء لـ USD/SYP'); return; }
-    addHist('usdsyp', buy, sell || buy, prev.usdsyp_buy, prev.usdsyp_sell);
-    upd.usdsyp_buy_prev = prev.usdsyp_buy || buy;
-    upd.usdsyp_sell_prev = prev.usdsyp_sell || sell;
-    upd.usdsyp_buy = buy;
-    upd.usdsyp_sell = sell || buy;
-  }
-  localStorage.setItem(STORE_KEY, JSON.stringify(upd));
-  loadCurrent(); renderHist();
-  showOk(pair === 'all' ? 'تم نشر جميع الأسعار ✓' : 'تم نشر السعر ✓');
-}
-function saveAll() { saveRates('all'); }
+
+window.saveRates = async function(pair) {
+  const buy = parseFloat(document.getElementById(`inp-${pair}-buy`).value);
+  const sell = parseFloat(document.getElementById(`inp-${pair}-sell`).value);
+  if (isNaN(buy) || buy <= 0) { showErr(`أدخل سعر الشراء لـ ${pair.toUpperCase()}`); return; }
+  setLoading(pair, true);
+  try {
+    const prev = currentRates;
+    const prevBuy = pair === 'usdtry' ? prev.usdtry_buy : prev.usdsyp_buy;
+    const dir = buy >= (prevBuy || buy) ? 'up' : 'down';
+    const upd = {
+      ...currentRates,
+      updatedAt: new Date().toISOString(),
+      [`${pair}_buy_prev`]: prevBuy || buy,
+      [`${pair}_sell_prev`]: pair === 'usdtry' ? prev.usdtry_sell : prev.usdsyp_sell,
+      [`${pair}_buy`]: buy,
+      [`${pair}_sell`]: isNaN(sell) ? buy : sell,
+    };
+    await pushToFirebase(upd);
+    await addHistory(pair, buy, isNaN(sell) ? buy : sell, dir);
+    showOk(`✓ تم نشر ${pair === 'usdtry' ? 'USD/TRY' : 'USD/SYP'} بنجاح`);
+  } catch(e) { showErr('فشل الاتصال: ' + e.message); }
+  setLoading(pair, false);
+};
+
+window.saveAll = async function() {
+  const buy1 = parseFloat(document.getElementById('inp-usdtry-buy').value);
+  const sell1 = parseFloat(document.getElementById('inp-usdtry-sell').value);
+  const buy2 = parseFloat(document.getElementById('inp-usdsyp-buy').value);
+  const sell2 = parseFloat(document.getElementById('inp-usdsyp-sell').value);
+  if (isNaN(buy1) || buy1 <= 0) { showErr('أدخل سعر USD/TRY'); return; }
+  if (isNaN(buy2) || buy2 <= 0) { showErr('أدخل سعر USD/SYP'); return; }
+  setLoading('all', true);
+  try {
+    const prev = currentRates;
+    const upd = {
+      ...prev,
+      updatedAt: new Date().toISOString(),
+      usdtry_buy_prev: prev.usdtry_buy || buy1,
+      usdtry_sell_prev: prev.usdtry_sell || sell1,
+      usdtry_buy: buy1, usdtry_sell: isNaN(sell1) ? buy1 : sell1,
+      usdsyp_buy_prev: prev.usdsyp_buy || buy2,
+      usdsyp_sell_prev: prev.usdsyp_sell || sell2,
+      usdsyp_buy: buy2, usdsyp_sell: isNaN(sell2) ? buy2 : sell2,
+    };
+    await pushToFirebase(upd);
+    const d1 = buy1 >= (prev.usdtry_buy || buy1) ? 'up' : 'down';
+    const d2 = buy2 >= (prev.usdsyp_buy || buy2) ? 'up' : 'down';
+    await addHistory('usdtry', buy1, isNaN(sell1)?buy1:sell1, d1);
+    await addHistory('usdsyp', buy2, isNaN(sell2)?buy2:sell2, d2);
+    showOk('✓ تم نشر جميع الأسعار بنجاح');
+  } catch(e) { showErr('فشل الاتصال: ' + e.message); }
+  setLoading('all', false);
+};
 
 // ── HISTORY ──
-function renderHist() {
-  const hist = JSON.parse(localStorage.getItem(HIST_KEY) || '[]');
-  const el = document.getElementById('hist-admin');
-  if (!hist.length) { el.innerHTML = '<div class="no-hist">لا توجد سجلات</div>'; return; }
-  el.innerHTML = hist.slice(0,30).map((h,i) => {
-    const d = new Date(h.time);
-    const t = d.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
-    const isUp = h.dir === 'up';
-    const b = h.pair === 'usdtry' ? parseFloat(h.buy).toFixed(2) : Math.round(h.buy).toLocaleString();
-    const s = h.pair === 'usdtry' ? parseFloat(h.sell).toFixed(2) : Math.round(h.sell).toLocaleString();
-    return `<div class="hist-item">
-      <span class="hi-time">${t}</span>
-      <span class="hi-pair">${h.pair==='usdtry'?'USD/TRY':'USD/SYP'}</span>
-      <span style="font-size:14px;color:${isUp?'var(--green)':'var(--red)'}"><i class="ti ti-trending-${isUp?'up':'down'}" aria-hidden="true"></i></span>
-      <span class="hi-vals">شراء ${b} / بيع ${s}</span>
-      <button class="hi-del" onclick="delHist(${i})"><i class="ti ti-x" aria-hidden="true"></i></button>
-    </div>`;
-  }).join('');
-}
-function delHist(i) {
-  const hist = JSON.parse(localStorage.getItem(HIST_KEY) || '[]');
-  hist.splice(i,1);
-  localStorage.setItem(HIST_KEY, JSON.stringify(hist));
-  renderHist();
-}
-function clearHist() {
-  if (!confirm('حذف كل السجل؟')) return;
-  localStorage.removeItem(HIST_KEY);
-  renderHist();
+function listenHistory() {
+  onValue(ref(db, 'history'), snap => {
+    const data = snap.val();
+    const hist = data ? Object.entries(data).map(([k,v]) => ({...v,_key:k})).reverse() : [];
+    const el = document.getElementById('hist-admin');
+    if (!hist.length) { el.innerHTML = '<div class="no-hist">لا توجد سجلات</div>'; return; }
+    el.innerHTML = hist.slice(0,30).map(h => {
+      const d = new Date(h.time);
+      const t = d.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
+      const isUp = h.dir === 'up';
+      const b = h.pair === 'usdtry' ? parseFloat(h.buy).toFixed(2) : Math.round(h.buy).toLocaleString();
+      const s = h.pair === 'usdtry' ? parseFloat(h.sell).toFixed(2) : Math.round(h.sell).toLocaleString();
+      return `<div class="hist-item">
+        <span class="hi-time">${t}</span>
+        <span class="hi-pair">${h.pair==='usdtry'?'USD/TRY':'USD/SYP'}</span>
+        <span style="font-size:16px;color:${isUp?'var(--green)':'var(--red)'}"><i class="ti ti-trending-${isUp?'up':'down'}" aria-hidden="true"></i></span>
+        <span class="hi-vals">شراء ${b} / بيع ${s}</span>
+        <button class="hi-del" onclick="delHistEntry('${h._key}')"><i class="ti ti-x" aria-hidden="true"></i></button>
+      </div>`;
+    }).join('');
+  });
 }
 
+window.delHistEntry = async function(key) {
+  await remove(ref(db, 'history/' + key));
+};
+window.clearHist = async function() {
+  if (!confirm('حذف كل السجل من Firebase؟')) return;
+  await remove(ref(db, 'history'));
+  showOk('تم مسح السجل');
+};
+
 // ── SETTINGS ──
-function loadSettings() {
-  const s = JSON.parse(localStorage.getItem(SET_KEY) || '{}');
-  if (s.buysell !== undefined) document.getElementById('tog-buysell').checked = s.buysell;
-  if (s.ticker !== undefined) document.getElementById('tog-ticker').checked = s.ticker;
-  if (s.calc !== undefined) document.getElementById('tog-calc').checked = s.calc;
-}
-function saveSettings() {
-  const s = {
-    buysell: document.getElementById('tog-buysell').checked,
-    ticker: document.getElementById('tog-ticker').checked,
-    calc: document.getElementById('tog-calc').checked,
-  };
-  localStorage.setItem(SET_KEY, JSON.stringify(s));
-  showOk('تم حفظ الإعدادات');
-}
-function changePw() {
+window.changePw = function() {
   const v = document.getElementById('new-pw').value.trim();
   if (!v || v.length < 4) { showErr('كلمة المرور يجب أن تكون 4 أحرف على الأقل'); return; }
   state.pw = v;
   localStorage.setItem(PW_KEY, v);
   document.getElementById('new-pw').value = '';
   showOk('تم تغيير كلمة المرور');
-}
+};
 
-// ── ALERTS ──
 function showOk(msg) {
   const el = document.getElementById('alert-ok');
   document.getElementById('alert-ok-txt').textContent = msg;
   el.style.display = 'flex';
-  setTimeout(() => el.style.display = 'none', 3000);
+  setTimeout(() => el.style.display = 'none', 3500);
 }
 function showErr(msg) {
   const el = document.getElementById('alert-err');
   document.getElementById('alert-err-txt').textContent = msg;
   el.style.display = 'flex';
-  setTimeout(() => el.style.display = 'none', 4000);
+  setTimeout(() => el.style.display = 'none', 4500);
 }
-
-// LIVE CLOCK in header
-setInterval(() => {
-  const now = new Date();
-  const raw = localStorage.getItem(STORE_KEY);
-  if (raw) {
-    const r = JSON.parse(raw);
-    if (r.updatedAt) {
-      const d = new Date(r.updatedAt);
-      const ts = d.toLocaleString('ar-SY',{hour:'2-digit',minute:'2-digit',second:'2-digit',day:'2-digit',month:'short',hour12:true});
-      if (state.loggedIn) document.getElementById('h-sub').textContent = 'اتحاد الصرافين — إدلب • آخر تحديث: ' + ts;
-    }
-  }
-}, 5000);
 </script>
 </body>
 </html>
