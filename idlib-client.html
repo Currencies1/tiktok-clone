@@ -18,39 +18,29 @@
   --radius:14px;--r:10px;
 }
 body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;direction:rtl}
-
-/* HEADER */
 .header{background:linear-gradient(135deg,#0d1820,#1a2535);border-bottom:2px solid var(--gold-b);padding:0}
 .header-top{display:flex;align-items:center;gap:16px;padding:16px 20px 12px}
 .logo-circle{width:64px;height:64px;border-radius:50%;border:2px solid var(--gold);background:var(--gold-bg);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
-.header-title{flex:1}
 .header-title h1{font-size:18px;font-weight:700;color:var(--gold2);line-height:1.3}
 .header-title p{font-size:12px;color:var(--text2);margin-top:2px}
 .header-date{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);padding:8px 16px;display:flex;align-items:center;gap:12px;justify-content:space-between;margin:0 16px 14px}
 .date-txt{font-size:15px;font-weight:700;color:var(--gold);font-family:monospace;letter-spacing:1px}
-.refresh-btn{background:var(--gold-bg);border:1px solid var(--gold-b);border-radius:8px;padding:6px 10px;cursor:pointer;color:var(--gold);font-size:16px;transition:.15s}
+.refresh-btn{background:var(--gold-bg);border:1px solid var(--gold-b);border-radius:8px;padding:6px 10px;cursor:pointer;color:var(--gold);font-size:16px;transition:.15s;border:none}
 .refresh-btn:hover{background:var(--gold-b)}
-
-/* TICKER */
 .ticker{background:var(--gold-bg);border-top:1px solid var(--gold-b);border-bottom:1px solid var(--gold-b);overflow:hidden;padding:6px 0}
 .ticker-inner{display:inline-flex;animation:tick 20s linear infinite;white-space:nowrap;gap:2rem}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .ticker-item{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gold)}
 .ticker-sep{color:var(--gold-b)}
-
-/* MAIN */
 .main{padding:16px;max-width:700px;margin:0 auto}
-
-/* RATE CARDS */
-.rate-section{margin-bottom:16px}
-.section-label{font-size:12px;color:var(--text3);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;padding-right:4px}
+.section-label{font-size:12px;color:var(--text3);font-weight:700;letter-spacing:1px;margin-bottom:8px;padding-right:4px}
 .pair-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;margin-bottom:12px}
 .pair-header{background:var(--bg3);padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
 .pair-flags{font-size:20px}
 .pair-name{font-size:13px;font-weight:700;color:var(--gold);flex:1}
 .pair-time{font-size:11px;color:var(--text3)}
 .buy-sell{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.bs-box{padding:16px;text-align:center;position:relative}
+.bs-box{padding:16px;text-align:center}
 .bs-box:first-child{border-left:1px solid var(--border)}
 .bs-label{font-size:11px;color:var(--text2);font-weight:700;letter-spacing:.5px;margin-bottom:6px}
 .bs-rate{font-size:32px;font-weight:700;color:var(--gold2);line-height:1;font-family:monospace}
@@ -60,8 +50,6 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
 .bs-change.down{background:var(--red-bg);color:var(--red);border:1px solid var(--red-b)}
 .bs-change.flat{background:var(--bg3);color:var(--text3)}
 .bs-currency{font-size:12px;color:var(--text2);margin-top:4px}
-
-/* CONVERTER */
 .conv-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:16px;margin-bottom:16px}
 .conv-title{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .conv-pair-tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
@@ -78,10 +66,8 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
 .step-btn:hover{background:var(--gold-bg);border-color:var(--gold-b)}
 .step-val{font-size:18px;font-weight:700;color:var(--gold2);min-width:60px;text-align:center;font-family:monospace}
 .conv-result-row{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
-.cr-label{font-size:11px;color:var(--text3);margin-bottom:4px}
 .cr-val{font-size:20px;font-weight:700;color:var(--green);font-family:monospace}
-
-/* HISTORY */
+.cr-label{font-size:11px;color:var(--text3);margin-bottom:4px}
 .hist-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;margin-bottom:16px}
 .hist-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
 .hist-title{font-size:13px;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:8px}
@@ -91,17 +77,17 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
 .hist-row{display:flex;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border);gap:12px}
 .hist-row:last-child{border-bottom:none}
 .hist-time{font-size:14px;font-weight:700;color:var(--text2);font-family:monospace;min-width:50px}
-.hist-arrow{font-size:18px}
 .hist-rate{font-size:16px;font-weight:700;color:var(--gold2);margin-right:auto;font-family:monospace}
 .hist-pair-tag{font-size:10px;color:var(--text3);padding:2px 6px;border-radius:6px;background:var(--bg3);border:1px solid var(--border)}
-
-/* FOOTER */
 .footer{text-align:center;padding:20px 16px;border-top:1px solid var(--border);color:var(--text3);font-size:12px;margin-top:8px}
 .footer strong{color:var(--gold);display:block;font-size:14px;margin-bottom:4px}
-
 .live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite;display:inline-block}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
 .no-data{text-align:center;padding:24px;color:var(--text3);font-size:13px}
+.connecting{text-align:center;padding:40px 20px;color:var(--text2)}
+.conn-spinner{width:40px;height:40px;border:3px solid var(--border2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.offline-bar{background:var(--red-bg);border:1px solid var(--red-b);border-radius:var(--r);padding:10px 14px;margin-bottom:14px;font-size:13px;color:var(--red);display:none;align-items:center;gap:8px}
 </style>
 </head>
 <body>
@@ -114,30 +100,41 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
       <p>Union of Money Exchangers in Idlib</p>
     </div>
   </div>
-  <div class="header-date" style="margin:0 16px 14px">
+  <div class="header-date">
     <div style="display:flex;align-items:center;gap:8px">
       <i class="ti ti-calendar" style="color:var(--gold);font-size:18px" aria-hidden="true"></i>
       <span class="date-txt" id="live-date">—</span>
     </div>
-    <button class="refresh-btn" onclick="loadRates()" title="تحديث">
-      <i class="ti ti-refresh" aria-hidden="true"></i>
-    </button>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="live-dot"></span>
+      <span style="font-size:11px;color:var(--green)">مباشر</span>
+      <button class="refresh-btn" onclick="forceRefresh()" title="تحديث">
+        <i class="ti ti-refresh" aria-hidden="true"></i>
+      </button>
+    </div>
   </div>
 </div>
 
 <div class="ticker" id="ticker-bar">
-  <div class="ticker-inner" id="ticker-inner"></div>
+  <div class="ticker-inner" id="ticker-inner">
+    <span class="ticker-item">جاري تحميل الأسعار...</span>
+  </div>
 </div>
 
 <div class="main">
-  <div id="offline-notice" style="display:none;background:var(--red-bg);border:1px solid var(--red-b);border-radius:var(--r);padding:10px 14px;margin-bottom:14px;font-size:13px;color:var(--red);display:flex;align-items:center;gap:8px">
-    <i class="ti ti-wifi-off" aria-hidden="true"></i> لا يوجد اتصال — يتم عرض آخر أسعار محفوظة
+  <div class="offline-bar" id="offline-bar">
+    <i class="ti ti-wifi-off" aria-hidden="true"></i> لا يوجد اتصال بالإنترنت — يتم عرض آخر أسعار محفوظة
   </div>
 
-  <!-- USD/TRY -->
-  <div class="rate-section">
+  <div id="connecting" class="connecting">
+    <div class="conn-spinner"></div>
+    <div>جاري الاتصال بقاعدة البيانات...</div>
+  </div>
+
+  <div id="content" style="display:none">
+    <!-- USD/TRY -->
     <div class="section-label">دولار أمريكي — ليرة تركية</div>
-    <div class="pair-card" id="card-usdtry">
+    <div class="pair-card">
       <div class="pair-header">
         <span class="pair-flags">🇺🇸 → 🇹🇷</span>
         <span class="pair-name">USD / TRY</span>
@@ -159,12 +156,10 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- USD/SYP -->
-  <div class="rate-section">
-    <div class="section-label">دولار أمريكي — ليرة سورية</div>
-    <div class="pair-card" id="card-usdsyp">
+    <!-- USD/SYP -->
+    <div class="section-label" style="margin-top:4px">دولار أمريكي — ليرة سورية</div>
+    <div class="pair-card">
       <div class="pair-header">
         <span class="pair-flags">🇺🇸 → 🇸🇾</span>
         <span class="pair-name">USD / SYP</span>
@@ -186,54 +181,54 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CONVERTER -->
-  <div class="conv-card">
-    <div class="conv-title"><i class="ti ti-calculator" aria-hidden="true"></i> حاسبة التحويل</div>
-    <div class="conv-pair-tabs">
-      <button class="conv-tab active" onclick="setConvPair('usdtry',this)">USD ⇌ TRY</button>
-      <button class="conv-tab" onclick="setConvPair('usdsyp',this)">USD ⇌ SYP</button>
-      <button class="conv-tab" onclick="setConvPair('trysyp',this)">TRY ⇌ SYP</button>
+    <!-- CONVERTER -->
+    <div class="conv-card">
+      <div class="conv-title"><i class="ti ti-calculator" aria-hidden="true"></i> حاسبة التحويل</div>
+      <div class="conv-pair-tabs">
+        <button class="conv-tab active" onclick="setConvPair('usdtry',this)">USD ⇌ TRY</button>
+        <button class="conv-tab" onclick="setConvPair('usdsyp',this)">USD ⇌ SYP</button>
+        <button class="conv-tab" onclick="setConvPair('trysyp',this)">TRY ⇌ SYP</button>
+      </div>
+      <div class="conv-body">
+        <div class="conv-row-main">
+          <div class="conv-num-box">
+            <span class="conv-sym" id="conv-sym-left">$</span>
+            <input type="number" class="conv-inp" id="conv-amount" value="1" min="0" step="0.1" oninput="calcConv()">
+            <span class="conv-sym right" id="conv-sym-right">₺</span>
+          </div>
+          <button class="step-btn" onclick="swapConvDir()"><i class="ti ti-arrows-exchange" aria-hidden="true"></i></button>
+        </div>
+        <div class="conv-stepper">
+          <button class="step-btn" onclick="stepAmount(-1)">−</button>
+          <div class="step-val" id="step-display">1</div>
+          <button class="step-btn" onclick="stepAmount(1)">+</button>
+        </div>
+        <div class="conv-result-row">
+          <div>
+            <div class="cr-label">النتيجة</div>
+            <div class="cr-val" id="conv-result">—</div>
+          </div>
+          <div style="text-align:left">
+            <div class="cr-label">السعر المستخدم</div>
+            <div style="font-size:12px;color:var(--text2);margin-top:2px" id="conv-rate-label">—</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="conv-body">
-      <div class="conv-row-main">
-        <div class="conv-num-box">
-          <span class="conv-sym" id="conv-sym-left">$</span>
-          <input type="number" class="conv-inp" id="conv-amount" value="1" min="0" step="0.1" oninput="calcConv()">
-          <span class="conv-sym right" id="conv-sym-right">$</span>
-        </div>
-        <button class="step-btn" onclick="swapConvDir()" title="عكس"><i class="ti ti-arrows-exchange" aria-hidden="true"></i></button>
-      </div>
-      <div class="conv-stepper">
-        <button class="step-btn" onclick="stepAmount(-1)">−</button>
-        <div class="step-val" id="step-display">1</div>
-        <button class="step-btn" onclick="stepAmount(1)">+</button>
-      </div>
-      <div class="conv-result-row">
-        <div>
-          <div class="cr-label">النتيجة</div>
-          <div class="cr-val" id="conv-result">—</div>
-        </div>
-        <div style="text-align:left">
-          <div class="cr-label">السعر المستخدم</div>
-          <div style="font-size:12px;color:var(--text2);margin-top:2px" id="conv-rate-label">—</div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- HISTORY -->
-  <div class="hist-card">
-    <div class="hist-header">
-      <div class="hist-title"><i class="ti ti-clock" aria-hidden="true"></i> سجل اليوم</div>
-      <div class="hist-filter">
-        <button class="hf-btn active" onclick="filterHist('all',this)">الكل</button>
-        <button class="hf-btn" onclick="filterHist('usdtry',this)">USD/TRY</button>
-        <button class="hf-btn" onclick="filterHist('usdsyp',this)">USD/SYP</button>
+    <!-- HISTORY -->
+    <div class="hist-card">
+      <div class="hist-header">
+        <div class="hist-title"><i class="ti ti-clock" aria-hidden="true"></i> سجل التحديثات</div>
+        <div class="hist-filter">
+          <button class="hf-btn active" onclick="filterHist('all',this)">الكل</button>
+          <button class="hf-btn" onclick="filterHist('usdtry',this)">USD/TRY</button>
+          <button class="hf-btn" onclick="filterHist('usdsyp',this)">USD/SYP</button>
+        </div>
       </div>
+      <div id="hist-body"><div class="no-data">لا توجد سجلات بعد</div></div>
     </div>
-    <div id="hist-body"><div class="no-data">لا توجد سجلات بعد</div></div>
   </div>
 </div>
 
@@ -243,29 +238,47 @@ body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:v
   <div style="margin-top:8px;font-size:11px">آخر تحديث: <span id="footer-update">—</span></div>
 </div>
 
-<script>
-const STORE_KEY = 'idlib_rates_v2';
-let convPair = 'usdtry', convDir = 1;
-let histFilter = 'all';
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCVJclfpEp9Jo9879C3RfZKiEdBUibwrxI",
+  authDomain: "ahmad-662ee.firebaseapp.com",
+  databaseURL: "https://ahmad-662ee-default-rtdb.firebaseio.com",
+  projectId: "ahmad-662ee",
+  storageBucket: "ahmad-662ee.firebasestorage.app",
+  messagingSenderId: "740891153734",
+  appId: "1:740891153734:web:039134fdcba74c60618147"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
 let rates = null;
+let history = [];
+let convPair = 'usdtry';
+let convDir = 1;
+let histFilter = 'all';
 
-function loadRates() {
-  try {
-    const raw = localStorage.getItem(STORE_KEY);
-    if (raw) {
-      rates = JSON.parse(raw);
-      renderRates();
-      renderTicker();
-      renderHist();
-    } else {
-      showNoData();
-    }
-  } catch(e) { showNoData(); }
-}
+// LISTEN to rates in realtime
+onValue(ref(db, 'rates'), snap => {
+  const data = snap.val();
+  if (!data) { document.getElementById('connecting').innerHTML = '<div style="color:var(--text3);padding:40px 20px;text-align:center">لا توجد أسعار بعد — انتظر تحديث المشرف</div>'; return; }
+  rates = data;
+  document.getElementById('connecting').style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+  renderRates();
+  renderTicker();
+  calcConv();
+});
 
-function showNoData() {
-  ['buy-usdtry','sell-usdtry','buy-usdsyp','sell-usdsyp'].forEach(id => document.getElementById(id).textContent = '—');
-}
+// LISTEN to history in realtime
+onValue(ref(db, 'history'), snap => {
+  const data = snap.val();
+  history = data ? Object.values(data).reverse() : [];
+  renderHist();
+});
 
 function fmt(n, pair) {
   if (pair === 'usdtry') return parseFloat(n).toFixed(2);
@@ -275,7 +288,7 @@ function fmt(n, pair) {
 function changeBadge(el, cur, prev) {
   if (!prev || prev === 0) { el.className = 'bs-change flat'; el.textContent = '—'; return; }
   const pct = ((cur - prev) / prev * 100);
-  if (Math.abs(pct) < 0.01) { el.className = 'bs-change flat'; el.textContent = '—'; return; }
+  if (Math.abs(pct) < 0.001) { el.className = 'bs-change flat'; el.textContent = '—'; return; }
   el.className = 'bs-change ' + (pct > 0 ? 'up' : 'down');
   el.textContent = (pct > 0 ? '▲ ' : '▼ ') + Math.abs(pct).toFixed(2) + '%';
 }
@@ -285,115 +298,115 @@ function renderRates() {
   const r = rates;
   const now = new Date(r.updatedAt || Date.now());
 
-  // USD/TRY
   document.getElementById('buy-usdtry').textContent = fmt(r.usdtry_buy, 'usdtry');
   document.getElementById('sell-usdtry').textContent = fmt(r.usdtry_sell, 'usdtry');
   document.getElementById('time-usdtry').textContent = now.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
   changeBadge(document.getElementById('chg-buy-usdtry'), r.usdtry_buy, r.usdtry_buy_prev);
   changeBadge(document.getElementById('chg-sell-usdtry'), r.usdtry_sell, r.usdtry_sell_prev);
 
-  // USD/SYP
   document.getElementById('buy-usdsyp').textContent = fmt(r.usdsyp_buy, 'usdsyp');
   document.getElementById('sell-usdsyp').textContent = fmt(r.usdsyp_sell, 'usdsyp');
   document.getElementById('time-usdsyp').textContent = now.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
   changeBadge(document.getElementById('chg-buy-usdsyp'), r.usdsyp_buy, r.usdsyp_buy_prev);
   changeBadge(document.getElementById('chg-sell-usdsyp'), r.usdsyp_sell, r.usdsyp_sell_prev);
 
-  document.getElementById('footer-update').textContent = now.toLocaleString('ar-SY',{hour12:true,hour:'2-digit',minute:'2-digit',day:'2-digit',month:'short'});
-  calcConv();
+  const ts = now.toLocaleString('ar-SY',{hour12:true,hour:'2-digit',minute:'2-digit',day:'2-digit',month:'short'});
+  document.getElementById('footer-update').textContent = ts;
 }
 
 function renderTicker() {
   if (!rates) return;
   const r = rates;
   const items = [
-    `🇺🇸→🇹🇷 شراء: <strong>${fmt(r.usdtry_buy,'usdtry')}</strong> بيع: <strong>${fmt(r.usdtry_sell,'usdtry')}</strong>`,
-    `🇺🇸→🇸🇾 شراء: <strong>${fmt(r.usdsyp_buy,'usdsyp').replace(/,/g,'،')}</strong> بيع: <strong>${fmt(r.usdsyp_sell,'usdsyp').replace(/,/g,'،')}</strong>`
+    `🇺🇸→🇹🇷 شراء: <strong>${fmt(r.usdtry_buy,'usdtry')}</strong> | بيع: <strong>${fmt(r.usdtry_sell,'usdtry')}</strong>`,
+    `🇺🇸→🇸🇾 شراء: <strong>${fmt(r.usdsyp_buy,'usdsyp')}</strong> | بيع: <strong>${fmt(r.usdsyp_sell,'usdsyp')}</strong>`
   ].map(t => `<span class="ticker-item">${t}</span><span class="ticker-sep"> • </span>`).join('');
   const el = document.getElementById('ticker-inner');
   el.innerHTML = items + items;
 }
 
 function renderHist() {
-  const raw = localStorage.getItem(STORE_KEY + '_hist');
-  if (!raw) { document.getElementById('hist-body').innerHTML = '<div class="no-data">لا توجد سجلات بعد</div>'; return; }
-  let hist = JSON.parse(raw);
-  if (histFilter !== 'all') hist = hist.filter(h => h.pair === histFilter);
-  if (!hist.length) { document.getElementById('hist-body').innerHTML = '<div class="no-data">لا سجلات لهذا الزوج</div>'; return; }
-  document.getElementById('hist-body').innerHTML = hist.slice(0,20).map(h => {
+  let rows = histFilter === 'all' ? history : history.filter(h => h.pair === histFilter);
+  if (!rows.length) { document.getElementById('hist-body').innerHTML = '<div class="no-data">لا توجد سجلات</div>'; return; }
+  document.getElementById('hist-body').innerHTML = rows.slice(0,20).map(h => {
     const d = new Date(h.time);
-    const timeStr = d.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
+    const t = d.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
     const isDown = h.dir === 'down';
+    const val = h.pair === 'usdtry' ? parseFloat(h.buy).toFixed(2) : Math.round(h.buy).toLocaleString();
     return `<div class="hist-row">
-      <span class="hist-time">${timeStr}</span>
-      <span class="hist-arrow" style="color:${isDown?'var(--red)':'var(--green)'}">
-        <i class="ti ti-trending-${isDown?'down':'up'}" aria-hidden="true"></i>
-      </span>
-      <span class="hist-rate">${h.pair==='usdtry'?parseFloat(h.buy).toFixed(2):Math.round(h.buy).toLocaleString()}</span>
+      <span class="hist-time">${t}</span>
+      <span style="font-size:18px;color:${isDown?'var(--red)':'var(--green)'}"><i class="ti ti-trending-${isDown?'down':'up'}" aria-hidden="true"></i></span>
+      <span class="hist-rate">${val}</span>
       <span class="hist-pair-tag">${h.pair==='usdtry'?'USD/TRY':'USD/SYP'}</span>
     </div>`;
   }).join('');
 }
 
-function filterHist(f, btn) {
+window.filterHist = function(f, btn) {
   histFilter = f;
   document.querySelectorAll('.hf-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderHist();
-}
+};
 
-// CONVERTER
-function setConvPair(pair, btn) {
+window.setConvPair = function(pair, btn) {
   convPair = pair; convDir = 1;
   document.querySelectorAll('.conv-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   updateConvSymbols(); calcConv();
-}
-function swapConvDir() { convDir *= -1; updateConvSymbols(); calcConv(); }
+};
+window.swapConvDir = function() { convDir *= -1; updateConvSymbols(); calcConv(); };
 function updateConvSymbols() {
   const syms = {usdtry:{l:'$',r:'₺'},usdsyp:{l:'$',r:'£'},trysyp:{l:'₺',r:'£'}};
-  const s = syms[convPair] || {l:'$',r:'$'};
+  const s = syms[convPair];
   document.getElementById('conv-sym-left').textContent = convDir === 1 ? s.l : s.r;
   document.getElementById('conv-sym-right').textContent = convDir === 1 ? s.r : s.l;
 }
-function stepAmount(d) {
+window.stepAmount = function(d) {
   const inp = document.getElementById('conv-amount');
-  const cur = parseFloat(inp.value) || 0;
-  inp.value = Math.max(0, cur + d);
+  inp.value = Math.max(0, (parseFloat(inp.value)||0) + d);
   document.getElementById('step-display').textContent = inp.value;
   calcConv();
-}
+};
 function calcConv() {
   if (!rates) return;
   const amt = parseFloat(document.getElementById('conv-amount').value) || 0;
   document.getElementById('step-display').textContent = amt;
   const r = rates;
-  let result = 0, label = '—';
   const buyRate = convPair === 'usdtry' ? r.usdtry_buy : convPair === 'usdsyp' ? r.usdsyp_buy : (r.usdsyp_buy / r.usdtry_buy);
   const sellRate = convPair === 'usdtry' ? r.usdtry_sell : convPair === 'usdsyp' ? r.usdsyp_sell : (r.usdsyp_sell / r.usdtry_sell);
   const useRate = convDir === 1 ? buyRate : sellRate;
-  if (convDir === 1) { result = amt * useRate; label = `1 = ${convPair==='usdtry'?parseFloat(useRate).toFixed(2):Math.round(useRate).toLocaleString()}`; }
-  else { result = amt / useRate; label = `1 = ${convPair==='usdtry'?parseFloat(1/useRate).toFixed(4):(1/useRate).toFixed(6)}`; }
-  const pair = convPair==='usdtry'?'usdtry':'usdsyp';
-  document.getElementById('conv-result').textContent = (convPair==='usdtry'?result.toFixed(2):Math.round(result).toLocaleString('ar')) + (convDir===1?(convPair==='usdtry'?' TRY':' SYP'):(convPair==='usdtry'?' USD':' USD'));
+  let result, label, suffix;
+  if (convDir === 1) {
+    result = amt * useRate;
+    suffix = convPair === 'usdtry' ? ' TRY' : ' SYP';
+    label = `1 = ${convPair==='usdtry'?parseFloat(useRate).toFixed(2):Math.round(useRate).toLocaleString()}`;
+  } else {
+    result = amt / useRate;
+    suffix = ' USD';
+    label = `1 = ${(1/useRate).toFixed(convPair==='usdtry'?4:8)}`;
+  }
+  const fmtResult = convPair === 'usdtry' || convDir === -1 ? result.toFixed(2) : Math.round(result).toLocaleString('ar');
+  document.getElementById('conv-result').textContent = fmtResult + suffix;
   document.getElementById('conv-rate-label').textContent = label;
 }
+window.calcConv = calcConv;
+window.forceRefresh = function() {
+  const btn = document.querySelector('.refresh-btn');
+  btn.style.color = 'var(--green)';
+  setTimeout(() => btn.style.color = 'var(--gold)', 1000);
+};
 
-// LIVE DATE
-function updateDate() {
+// Live clock
+setInterval(() => {
   const now = new Date();
-  document.getElementById('live-date').textContent = now.toISOString().slice(0,10) + ' ' +
+  document.getElementById('live-date').textContent =
+    now.toISOString().slice(0,10) + ' ' +
     now.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
-}
-setInterval(updateDate, 1000);
-updateDate();
+}, 1000);
 
-// Poll for updates
-loadRates();
-setInterval(loadRates, 10000);
-
-// Listen for storage changes (cross-tab)
-window.addEventListener('storage', e => { if (e.key === STORE_KEY || e.key === STORE_KEY+'_hist') loadRates(); });
+window.addEventListener('offline', () => { document.getElementById('offline-bar').style.display='flex'; });
+window.addEventListener('online', () => { document.getElementById('offline-bar').style.display='none'; });
 </script>
 </body>
 </html>
