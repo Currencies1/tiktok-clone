@@ -1,412 +1,81 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>اتحاد الصرافين في إدلب</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💱</text></svg>">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<title>كليبو</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0f1923;--bg2:#162030;--bg3:#1e2d3d;
-  --card:#1a2535;--border:#243347;--border2:#2e4060;
-  --text:#f0e6c8;--text2:#9eafc2;--text3:#5a7a9a;
-  --gold:#d4a843;--gold2:#f0c060;--gold-bg:#1a1200;--gold-b:#7a5a10;
-  --green:#3dba6f;--green-bg:#041a0e;--green-b:#145a30;
-  --red:#e05050;--red-bg:#1a0404;--red-b:#7a2020;
-  --radius:14px;--r:10px;
-}
-body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;direction:rtl}
-.header{background:linear-gradient(135deg,#0d1820,#1a2535);border-bottom:2px solid var(--gold-b);padding:0}
-.header-top{display:flex;align-items:center;gap:16px;padding:16px 20px 12px}
-.logo-circle{width:64px;height:64px;border-radius:50%;border:2px solid var(--gold);background:var(--gold-bg);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
-.header-title h1{font-size:18px;font-weight:700;color:var(--gold2);line-height:1.3}
-.header-title p{font-size:12px;color:var(--text2);margin-top:2px}
-.header-date{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);padding:8px 16px;display:flex;align-items:center;gap:12px;justify-content:space-between;margin:0 16px 14px}
-.date-txt{font-size:15px;font-weight:700;color:var(--gold);font-family:monospace;letter-spacing:1px}
-.refresh-btn{background:var(--gold-bg);border:1px solid var(--gold-b);border-radius:8px;padding:6px 10px;cursor:pointer;color:var(--gold);font-size:16px;transition:.15s;border:none}
-.refresh-btn:hover{background:var(--gold-b)}
-.ticker{background:var(--gold-bg);border-top:1px solid var(--gold-b);border-bottom:1px solid var(--gold-b);overflow:hidden;padding:6px 0}
-.ticker-inner{display:inline-flex;animation:tick 20s linear infinite;white-space:nowrap;gap:2rem}
-@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.ticker-item{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gold)}
-.ticker-sep{color:var(--gold-b)}
-.main{padding:16px;max-width:700px;margin:0 auto}
-.section-label{font-size:12px;color:var(--text3);font-weight:700;letter-spacing:1px;margin-bottom:8px;padding-right:4px}
-.pair-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;margin-bottom:12px}
-.pair-header{background:var(--bg3);padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border)}
-.pair-flags{font-size:20px}
-.pair-name{font-size:13px;font-weight:700;color:var(--gold);flex:1}
-.pair-time{font-size:11px;color:var(--text3)}
-.buy-sell{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.bs-box{padding:16px;text-align:center}
-.bs-box:first-child{border-left:1px solid var(--border)}
-.bs-label{font-size:11px;color:var(--text2);font-weight:700;letter-spacing:.5px;margin-bottom:6px}
-.bs-rate{font-size:32px;font-weight:700;color:var(--gold2);line-height:1;font-family:monospace}
-.bs-rate.syp{font-size:22px}
-.bs-change{display:inline-flex;align-items:center;gap:3px;font-size:11px;margin-top:6px;padding:2px 8px;border-radius:10px;font-weight:700}
-.bs-change.up{background:var(--green-bg);color:var(--green);border:1px solid var(--green-b)}
-.bs-change.down{background:var(--red-bg);color:var(--red);border:1px solid var(--red-b)}
-.bs-change.flat{background:var(--bg3);color:var(--text3)}
-.bs-currency{font-size:12px;color:var(--text2);margin-top:4px}
-.conv-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);padding:16px;margin-bottom:16px}
-.conv-title{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.conv-pair-tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.conv-tab{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:.15s}
-.conv-tab.active{background:var(--gold-bg);color:var(--gold);border-color:var(--gold-b)}
-.conv-body{display:flex;flex-direction:column;gap:10px}
-.conv-row-main{display:flex;align-items:center;gap:8px}
-.conv-num-box{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);display:flex;align-items:center;overflow:hidden;flex:1}
-.conv-sym{width:36px;height:44px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:var(--gold);background:var(--gold-bg);border-left:1px solid var(--gold-b);flex-shrink:0}
-.conv-sym.right{border-left:none;border-right:1px solid var(--gold-b)}
-.conv-inp{flex:1;background:transparent;border:none;outline:none;font-size:22px;font-weight:700;color:var(--text);text-align:center;padding:0 8px;height:44px}
-.conv-stepper{display:flex;align-items:center;gap:8px;justify-content:center}
-.step-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--border2);background:var(--bg3);color:var(--gold);font-size:20px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s}
-.step-btn:hover{background:var(--gold-bg);border-color:var(--gold-b)}
-.step-val{font-size:18px;font-weight:700;color:var(--gold2);min-width:60px;text-align:center;font-family:monospace}
-.conv-result-row{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
-.cr-val{font-size:20px;font-weight:700;color:var(--green);font-family:monospace}
-.cr-label{font-size:11px;color:var(--text3);margin-bottom:4px}
-.hist-card{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;margin-bottom:16px}
-.hist-header{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.hist-title{font-size:13px;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:8px}
-.hist-filter{display:flex;gap:4px}
-.hf-btn{padding:4px 10px;border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:.15s}
-.hf-btn.active{background:var(--gold-bg);color:var(--gold);border-color:var(--gold-b)}
-.hist-row{display:flex;align-items:center;padding:10px 16px;border-bottom:1px solid var(--border);gap:12px}
-.hist-row:last-child{border-bottom:none}
-.hist-time{font-size:14px;font-weight:700;color:var(--text2);font-family:monospace;min-width:50px}
-.hist-rate{font-size:16px;font-weight:700;color:var(--gold2);margin-right:auto;font-family:monospace}
-.hist-pair-tag{font-size:10px;color:var(--text3);padding:2px 6px;border-radius:6px;background:var(--bg3);border:1px solid var(--border)}
-.footer{text-align:center;padding:20px 16px;border-top:1px solid var(--border);color:var(--text3);font-size:12px;margin-top:8px}
-.footer strong{color:var(--gold);display:block;font-size:14px;margin-bottom:4px}
-.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite;display:inline-block}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
-.no-data{text-align:center;padding:24px;color:var(--text3);font-size:13px}
-.connecting{text-align:center;padding:40px 20px;color:var(--text2)}
-.conn-spinner{width:40px;height:40px;border:3px solid var(--border2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
-@keyframes spin{to{transform:rotate(360deg)}}
-.offline-bar{background:var(--red-bg);border:1px solid var(--red-b);border-radius:var(--r);padding:10px 14px;margin-bottom:14px;font-size:13px;color:var(--red);display:none;align-items:center;gap:8px}
-</style>
-</head>
-<body>
-
-<div class="header">
-  <div class="header-top">
-    <div class="logo-circle">💱</div>
-    <div class="header-title">
-      <h1>اتحاد الصرافين في إدلب</h1>
-      <p>Union of Money Exchangers in Idlib</p>
-    </div>
-  </div>
-  <div class="header-date">
-    <div style="display:flex;align-items:center;gap:8px">
-      <i class="ti ti-calendar" style="color:var(--gold);font-size:18px" aria-hidden="true"></i>
-      <span class="date-txt" id="live-date">—</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px">
-      <span class="live-dot"></span>
-      <span style="font-size:11px;color:var(--green)">مباشر</span>
-      <button class="refresh-btn" onclick="forceRefresh()" title="تحديث">
-        <i class="ti ti-refresh" aria-hidden="true"></i>
-      </button>
-    </div>
-  </div>
-</div>
-
-<div class="ticker" id="ticker-bar">
-  <div class="ticker-inner" id="ticker-inner">
-    <span class="ticker-item">جاري تحميل الأسعار...</span>
-  </div>
-</div>
-
-<div class="main">
-  <div class="offline-bar" id="offline-bar">
-    <i class="ti ti-wifi-off" aria-hidden="true"></i> لا يوجد اتصال بالإنترنت — يتم عرض آخر أسعار محفوظة
-  </div>
-
-  <div id="connecting" class="connecting">
-    <div class="conn-spinner"></div>
-    <div>جاري الاتصال بقاعدة البيانات...</div>
-  </div>
-
-  <div id="content" style="display:none">
-    <!-- USD/TRY -->
-    <div class="section-label">دولار أمريكي — ليرة تركية</div>
-    <div class="pair-card">
-      <div class="pair-header">
-        <span class="pair-flags">🇺🇸 → 🇹🇷</span>
-        <span class="pair-name">USD / TRY</span>
-        <span class="live-dot"></span>
-        <span class="pair-time" id="time-usdtry">—</span>
-      </div>
-      <div class="buy-sell">
-        <div class="bs-box">
-          <div class="bs-label">شراء</div>
-          <div class="bs-rate" id="buy-usdtry">—</div>
-          <div class="bs-currency">ليرة تركية</div>
-          <div class="bs-change flat" id="chg-buy-usdtry">—</div>
-        </div>
-        <div class="bs-box">
-          <div class="bs-label">بيع</div>
-          <div class="bs-rate" id="sell-usdtry">—</div>
-          <div class="bs-currency">ليرة تركية</div>
-          <div class="bs-change flat" id="chg-sell-usdtry">—</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- USD/SYP -->
-    <div class="section-label" style="margin-top:4px">دولار أمريكي — ليرة سورية</div>
-    <div class="pair-card">
-      <div class="pair-header">
-        <span class="pair-flags">🇺🇸 → 🇸🇾</span>
-        <span class="pair-name">USD / SYP</span>
-        <span class="live-dot"></span>
-        <span class="pair-time" id="time-usdsyp">—</span>
-      </div>
-      <div class="buy-sell">
-        <div class="bs-box">
-          <div class="bs-label">شراء</div>
-          <div class="bs-rate syp" id="buy-usdsyp">—</div>
-          <div class="bs-currency">ليرة سورية</div>
-          <div class="bs-change flat" id="chg-buy-usdsyp">—</div>
-        </div>
-        <div class="bs-box">
-          <div class="bs-label">بيع</div>
-          <div class="bs-rate syp" id="sell-usdsyp">—</div>
-          <div class="bs-currency">ليرة سورية</div>
-          <div class="bs-change flat" id="chg-sell-usdsyp">—</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONVERTER -->
-    <div class="conv-card">
-      <div class="conv-title"><i class="ti ti-calculator" aria-hidden="true"></i> حاسبة التحويل</div>
-      <div class="conv-pair-tabs">
-        <button class="conv-tab active" onclick="setConvPair('usdtry',this)">USD ⇌ TRY</button>
-        <button class="conv-tab" onclick="setConvPair('usdsyp',this)">USD ⇌ SYP</button>
-        <button class="conv-tab" onclick="setConvPair('trysyp',this)">TRY ⇌ SYP</button>
-      </div>
-      <div class="conv-body">
-        <div class="conv-row-main">
-          <div class="conv-num-box">
-            <span class="conv-sym" id="conv-sym-left">$</span>
-            <input type="number" class="conv-inp" id="conv-amount" value="1" min="0" step="0.1" oninput="calcConv()">
-            <span class="conv-sym right" id="conv-sym-right">₺</span>
-          </div>
-          <button class="step-btn" onclick="swapConvDir()"><i class="ti ti-arrows-exchange" aria-hidden="true"></i></button>
-        </div>
-        <div class="conv-stepper">
-          <button class="step-btn" onclick="stepAmount(-1)">−</button>
-          <div class="step-val" id="step-display">1</div>
-          <button class="step-btn" onclick="stepAmount(1)">+</button>
-        </div>
-        <div class="conv-result-row">
-          <div>
-            <div class="cr-label">النتيجة</div>
-            <div class="cr-val" id="conv-result">—</div>
-          </div>
-          <div style="text-align:left">
-            <div class="cr-label">السعر المستخدم</div>
-            <div style="font-size:12px;color:var(--text2);margin-top:2px" id="conv-rate-label">—</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- HISTORY -->
-    <div class="hist-card">
-      <div class="hist-header">
-        <div class="hist-title"><i class="ti ti-clock" aria-hidden="true"></i> سجل التحديثات</div>
-        <div class="hist-filter">
-          <button class="hf-btn active" onclick="filterHist('all',this)">الكل</button>
-          <button class="hf-btn" onclick="filterHist('usdtry',this)">USD/TRY</button>
-          <button class="hf-btn" onclick="filterHist('usdsyp',this)">USD/SYP</button>
-        </div>
-      </div>
-      <div id="hist-body"><div class="no-data">لا توجد سجلات بعد</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="footer">
-  <strong>اتحاد الصرافين في إدلب</strong>
-  جميع الأسعار لأغراض إعلامية — وفق سوق إدلب
-  <div style="margin-top:8px;font-size:11px">آخر تحديث: <span id="footer-update">—</span></div>
-</div>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCVJclfpEp9Jo9879C3RfZKiEdBUibwrxI",
-  authDomain: "ahmad-662ee.firebaseapp.com",
-  databaseURL: "https://ahmad-662ee-default-rtdb.firebaseio.com",
-  projectId: "ahmad-662ee",
-  storageBucket: "ahmad-662ee.firebasestorage.app",
-  messagingSenderId: "740891153734",
-  appId: "1:740891153734:web:039134fdcba74c60618147"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-
-let rates = null;
-let history = [];
-let convPair = 'usdtry';
-let convDir = 1;
-let histFilter = 'all';
-
-// LISTEN to rates in realtime
-onValue(ref(db, 'rates'), snap => {
-  const data = snap.val();
-  if (!data) { document.getElementById('connecting').innerHTML = '<div style="color:var(--text3);padding:40px 20px;text-align:center">لا توجد أسعار بعد — انتظر تحديث المشرف</div>'; return; }
-  rates = data;
-  document.getElementById('connecting').style.display = 'none';
-  document.getElementById('content').style.display = 'block';
-  renderRates();
-  renderTicker();
-  calcConv();
-});
-
-// LISTEN to history in realtime
-onValue(ref(db, 'history'), snap => {
-  const data = snap.val();
-  history = data ? Object.values(data).reverse() : [];
-  renderHist();
-});
-
-function fmt(n, pair) {
-  if (pair === 'usdtry') return parseFloat(n).toFixed(2);
-  return Math.round(n).toLocaleString('ar');
-}
-
-function changeBadge(el, cur, prev) {
-  if (!prev || prev === 0) { el.className = 'bs-change flat'; el.textContent = '—'; return; }
-  const pct = ((cur - prev) / prev * 100);
-  if (Math.abs(pct) < 0.001) { el.className = 'bs-change flat'; el.textContent = '—'; return; }
-  el.className = 'bs-change ' + (pct > 0 ? 'up' : 'down');
-  el.textContent = (pct > 0 ? '▲ ' : '▼ ') + Math.abs(pct).toFixed(2) + '%';
-}
-
-function renderRates() {
-  if (!rates) return;
-  const r = rates;
-  const now = new Date(r.updatedAt || Date.now());
-
-  document.getElementById('buy-usdtry').textContent = fmt(r.usdtry_buy, 'usdtry');
-  document.getElementById('sell-usdtry').textContent = fmt(r.usdtry_sell, 'usdtry');
-  document.getElementById('time-usdtry').textContent = now.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
-  changeBadge(document.getElementById('chg-buy-usdtry'), r.usdtry_buy, r.usdtry_buy_prev);
-  changeBadge(document.getElementById('chg-sell-usdtry'), r.usdtry_sell, r.usdtry_sell_prev);
-
-  document.getElementById('buy-usdsyp').textContent = fmt(r.usdsyp_buy, 'usdsyp');
-  document.getElementById('sell-usdsyp').textContent = fmt(r.usdsyp_sell, 'usdsyp');
-  document.getElementById('time-usdsyp').textContent = now.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
-  changeBadge(document.getElementById('chg-buy-usdsyp'), r.usdsyp_buy, r.usdsyp_buy_prev);
-  changeBadge(document.getElementById('chg-sell-usdsyp'), r.usdsyp_sell, r.usdsyp_sell_prev);
-
-  const ts = now.toLocaleString('ar-SY',{hour12:true,hour:'2-digit',minute:'2-digit',day:'2-digit',month:'short'});
-  document.getElementById('footer-update').textContent = ts;
-}
-
-function renderTicker() {
-  if (!rates) return;
-  const r = rates;
-  const items = [
-    `🇺🇸→🇹🇷 شراء: <strong>${fmt(r.usdtry_buy,'usdtry')}</strong> | بيع: <strong>${fmt(r.usdtry_sell,'usdtry')}</strong>`,
-    `🇺🇸→🇸🇾 شراء: <strong>${fmt(r.usdsyp_buy,'usdsyp')}</strong> | بيع: <strong>${fmt(r.usdsyp_sell,'usdsyp')}</strong>`
-  ].map(t => `<span class="ticker-item">${t}</span><span class="ticker-sep"> • </span>`).join('');
-  const el = document.getElementById('ticker-inner');
-  el.innerHTML = items + items;
-}
-
-function renderHist() {
-  let rows = histFilter === 'all' ? history : history.filter(h => h.pair === histFilter);
-  if (!rows.length) { document.getElementById('hist-body').innerHTML = '<div class="no-data">لا توجد سجلات</div>'; return; }
-  document.getElementById('hist-body').innerHTML = rows.slice(0,20).map(h => {
-    const d = new Date(h.time);
-    const t = d.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit'});
-    const isDown = h.dir === 'down';
-    const val = h.pair === 'usdtry' ? parseFloat(h.buy).toFixed(2) : Math.round(h.buy).toLocaleString();
-    return `<div class="hist-row">
-      <span class="hist-time">${t}</span>
-      <span style="font-size:18px;color:${isDown?'var(--red)':'var(--green)'}"><i class="ti ti-trending-${isDown?'down':'up'}" aria-hidden="true"></i></span>
-      <span class="hist-rate">${val}</span>
-      <span class="hist-pair-tag">${h.pair==='usdtry'?'USD/TRY':'USD/SYP'}</span>
-    </div>`;
-  }).join('');
-}
-
-window.filterHist = function(f, btn) {
-  histFilter = f;
-  document.querySelectorAll('.hf-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderHist();
-};
-
-window.setConvPair = function(pair, btn) {
-  convPair = pair; convDir = 1;
-  document.querySelectorAll('.conv-tab').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  updateConvSymbols(); calcConv();
-};
-window.swapConvDir = function() { convDir *= -1; updateConvSymbols(); calcConv(); };
-function updateConvSymbols() {
-  const syms = {usdtry:{l:'$',r:'₺'},usdsyp:{l:'$',r:'£'},trysyp:{l:'₺',r:'£'}};
-  const s = syms[convPair];
-  document.getElementById('conv-sym-left').textContent = convDir === 1 ? s.l : s.r;
-  document.getElementById('conv-sym-right').textContent = convDir === 1 ? s.r : s.l;
-}
-window.stepAmount = function(d) {
-  const inp = document.getElementById('conv-amount');
-  inp.value = Math.max(0, (parseFloat(inp.value)||0) + d);
-  document.getElementById('step-display').textContent = inp.value;
-  calcConv();
-};
-function calcConv() {
-  if (!rates) return;
-  const amt = parseFloat(document.getElementById('conv-amount').value) || 0;
-  document.getElementById('step-display').textContent = amt;
-  const r = rates;
-  const buyRate = convPair === 'usdtry' ? r.usdtry_buy : convPair === 'usdsyp' ? r.usdsyp_buy : (r.usdsyp_buy / r.usdtry_buy);
-  const sellRate = convPair === 'usdtry' ? r.usdtry_sell : convPair === 'usdsyp' ? r.usdsyp_sell : (r.usdsyp_sell / r.usdtry_sell);
-  const useRate = convDir === 1 ? buyRate : sellRate;
-  let result, label, suffix;
-  if (convDir === 1) {
-    result = amt * useRate;
-    suffix = convPair === 'usdtry' ? ' TRY' : ' SYP';
-    label = `1 = ${convPair==='usdtry'?parseFloat(useRate).toFixed(2):Math.round(useRate).toLocaleString()}`;
-  } else {
-    result = amt / useRate;
-    suffix = ' USD';
-    label = `1 = ${(1/useRate).toFixed(convPair==='usdtry'?4:8)}`;
-  }
-  const fmtResult = convPair === 'usdtry' || convDir === -1 ? result.toFixed(2) : Math.round(result).toLocaleString('ar');
-  document.getElementById('conv-result').textContent = fmtResult + suffix;
-  document.getElementById('conv-rate-label').textContent = label;
-}
-window.calcConv = calcConv;
-window.forceRefresh = function() {
-  const btn = document.querySelector('.refresh-btn');
-  btn.style.color = 'var(--green)';
-  setTimeout(() => btn.style.color = 'var(--gold)', 1000);
-};
-
-// Live clock
-setInterval(() => {
-  const now = new Date();
-  document.getElementById('live-date').textContent =
-    now.toISOString().slice(0,10) + ' ' +
-    now.toLocaleTimeString('ar-SY',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
-}, 1000);
-
-window.addEventListener('offline', () => { document.getElementById('offline-bar').style.display='flex'; });
-window.addEventListener('online', () => { document.getElementById('offline-bar').style.display='none'; });
-</script>
-</body>
-</html>
+:root{--bg:#13151a;--sf:#1e2128;--gold:#c9a96a;--ink:#f3efe6;--mut:#9a9588;--line:#343841}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,"Noto Sans Arabic",sans-serif}
+#feed{height:100%;overflow-y:scroll;scroll-snap-type:y mandatory}
+.card{position:relative;height:100%;scroll-snap-align:start;display:flex;justify-content:center;background:#000}
+.card video{height:100%;width:100%;max-width:480px;object-fit:cover}
+.info{position:absolute;bottom:24px;right:calc(50% - 232px);padding:0 16px;max-width:380px;text-shadow:0 1px 6px #000}
+.side{position:absolute;bottom:90px;left:calc(50% - 232px);padding:0 12px;text-align:center}
+.side button{background:#13151acc;border:1px solid var(--line);color:var(--ink);width:50px;height:50px;border-radius:50%;font-size:1.2rem;cursor:pointer}
+.side small{display:block;margin:2px 0 14px;font-size:.8rem}
+@media(max-width:500px){.info{right:0}.side{left:0}}
+header{position:fixed;top:0;inset-inline:0;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;z-index:5;background:linear-gradient(#000a,transparent)}
+header h1{font-size:1.3rem;color:var(--gold);letter-spacing:.5px}
+.nav{display:flex;gap:8px}
+button.b{background:var(--gold);color:#1a1608;border:0;padding:8px 14px;border-radius:8px;font:inherit;font-weight:700;cursor:pointer}
+button.g{background:transparent;color:var(--ink);border:1px solid var(--line);padding:8px 14px;border-radius:8px;font:inherit;cursor:pointer}
+dialog{border:1px solid var(--line);border-radius:14px;padding:20px;width:min(92vw,440px);background:var(--sf);color:var(--ink);max-height:86vh}
+dialog::backdrop{background:#000b}
+dialog input,dialog select{width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+dialog h3{color:var(--gold);margin-bottom:8px}
+.row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.row>*{flex:1}
+.it{padding:8px 0;border-bottom:1px solid var(--line);font-size:.9rem;color:var(--mut)}
+.it a{color:var(--gold)}.bal{font-size:2rem;color:var(--gold);margin:6px 0}
+.empty{height:100%;display:grid;place-items:center;color:var(--mut);text-align:center;padding:20px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+</style></head><body>
+<header><h1>كليبو</h1><div class="nav" id="nav"></div></header>
+<main id="feed"></main>
+<dialog id="dlg"></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script>
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY),$=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let me=null,prof=null;
+const open=h=>{$('dlg').innerHTML=h+'<div class="row"><button class="g" onclick="dlg.close()">إغلاق</button></div>';$('dlg').showModal()};
+const fail=e=>alert(e.message||e);
+async function init(){const{data:{session}}=await sb.auth.getSession();me=session?.user||null;prof=null;
+ if(me){const{data}=await sb.from('profiles').select('*').eq('id',me.id).single();prof=data}
+ $('nav').innerHTML=me?`<button class="g" onclick="wallet()">المحفظة ${prof?prof.coins:0}</button><button class="b" onclick="upl()">رفع</button><button class="g" onclick="out()">خروج</button>`:`<button class="b" onclick="auth()">دخول</button>`;
+ feed()}
+const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target.querySelector('video');e.isIntersecting?v.play().catch(()=>{}):v.pause()}),{threshold:.7});
+async function feed(){const{data,error}=await sb.from('videos').select('*').eq('status','published').order('created_at',{ascending:false}).limit(50);
+ const f=$('feed');f.innerHTML='';
+ if(error||!data.length){f.innerHTML='<div class="empty">'+(error?'تعذر الاتصال بـ Supabase. راجع config.js':'لا توجد فيديوهات بعد. كن أول من ينشر.')+'</div>';return}
+ data.forEach(v=>{const s=document.createElement('section');s.className='card';
+  s.innerHTML=`<video src="${esc(v.url)}" loop muted playsinline></video><div class="info"><b>@${esc(v.username)} ${v.verified?'<span style="color:var(--gold)" title="حساب موثّق">✔</span>':''}</b><br><span>${esc(v.title)}</span></div>
+  <div class="side"><button aria-label="إعجاب">♥</button><small>${v.likes}</small></div>`;
+  const vd=s.querySelector('video');vd.onclick=()=>vd.muted=!vd.muted;
+  s.querySelector('button').onclick=async e=>{const{error}=await sb.rpc('like_video',{v:v.id});if(!error){v.likes++;e.target.nextElementSibling.textContent=v.likes}};
+  f.appendChild(s);io.observe(s)})}
+function auth(){open(`<h3>الدخول أو إنشاء حساب</h3><input id="e" type="email" placeholder="name@mail.com" dir="ltr"><input id="p" type="password" placeholder="كلمة المرور (6 أحرف على الأقل)"><input id="u" placeholder="اسم المستخدم (للتسجيل فقط)">
+ <div class="row"><button class="b" onclick="login()">دخول</button><button class="g" onclick="signup()">إنشاء حساب</button></div>`)}
+async function login(){const{error}=await sb.auth.signInWithPassword({email:$('e').value,password:$('p').value});if(error)return fail(error);dlg.close();init()}
+async function signup(){const{error}=await sb.auth.signUp({email:$('e').value,password:$('p').value,options:{data:{username:$('u').value.trim()}}});if(error)return fail(error);alert('تم إنشاء الحساب. إن طُلب تأكيد البريد فتحقق من بريدك ثم سجّل الدخول.');dlg.close();init()}
+async function out(){await sb.auth.signOut();init()}
+function upl(){open(`<h3>رفع فيديو</h3><input id="t" placeholder="عنوان الفيديو"><input id="f" type="file" accept="video/mp4,video/webm"><div class="row"><button class="b" id="ub" onclick="doUpl()">نشر</button></div>`)}
+async function doUpl(){const f=$('f').files[0];if(!f)return fail('اختر ملف فيديو');if(f.size>50*1024*1024)return fail('الحجم الأقصى 50 ميجابايت');
+ $('ub').textContent='جارٍ الرفع…';const p=me.id+'/'+Date.now()+'-'+f.name.replace(/[^\w.]/g,'_');
+ const{error}=await sb.storage.from('videos').upload(p,f);if(error){$('ub').textContent='نشر';return fail(error)}
+ const url=sb.storage.from('videos').getPublicUrl(p).data.publicUrl;
+ const r=await sb.from('videos').insert({title:$('t').value.trim()||'بدون عنوان',url});if(r.error)return fail(r.error);dlg.close();feed()}
+const st={pending:'قيد المراجعة',link_sent:'الرابط جاهز',paid:'مكتمل',rejected:'مرفوض'};
+async function wallet(){await init0();const[t,w]=await Promise.all([sb.from('topups').select('*').order('id',{ascending:false}),sb.from('withdrawals').select('*').order('id',{ascending:false})]);
+ const vs={none:'<button class="b" onclick="ver()">طلب توثيق الحساب</button>',pending:'<span class="it">طلب التوثيق قيد المراجعة</span>',approved:'<span style="color:var(--gold)">✔ حسابك موثّق</span>',rejected:'<button class="g" onclick="ver()">أعد طلب التوثيق</button>'}[prof.verify_status];
+ open(`<h3>المحفظة</h3><div class="bal">${prof.coins} عملة</div>${vs}
+ <h3 style="margin-top:14px">إيداع (شحن)</h3><input id="ta" type="number" min="1" placeholder="عدد العملات"><button class="b" onclick="top()">طلب شحن</button>
+ ${(t.data||[]).map(x=>`<div class="it">شحن ${x.amount} — ${st[x.status]} ${x.pay_link&&x.status!=='paid'?`<a href="${esc(x.pay_link)}" target="_blank" rel="noopener">ادفع الآن</a>`:''}</div>`).join('')}
+ <h3 style="margin-top:14px">سحب</h3><input id="wa" type="number" min="1" placeholder="عدد العملات"><input id="wm" placeholder="طريقة الاستلام (رقم محفظة أو حساب)"><button class="b" onclick="wd()">طلب سحب</button>
+ ${(w.data||[]).map(x=>`<div class="it">سحب ${x.amount} — ${st[x.status]}</div>`).join('')}`)}
+async function init0(){const{data}=await sb.from('profiles').select('*').eq('id',me.id).single();prof=data}
+async function ver(){const{error}=await sb.rpc('request_verify');if(error)return fail(error);wallet()}
+async function top(){const a=+$('ta').value;if(a<1)return;const{error}=await sb.from('topups').insert({amount:a});if(error)return fail(error);wallet()}
+async function wd(){const a=+$('wa').value;if(a<1||!$('wm').value.trim())return fail('أدخل المبلغ وطريقة الاستلام');const{error}=await sb.rpc('request_withdraw',{a,m:$('wm').value.trim()});if(error)return fail(error);init();wallet()}
+init();
+</script></body></html>
