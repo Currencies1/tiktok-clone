@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إدارة كليبو</title>
+<style>
+:root{--bg:#f6f3ec;--cd:#fff;--ink:#22232a;--mut:#7a7568;--gold:#9a7b3c;--line:#e4dfd2;--red:#a8382f}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",Tahoma,"Noto Sans Arabic",sans-serif;padding:16px}
+.w{max-width:980px;margin:auto}h1{font-size:1.4rem;margin:8px 0 14px}h2{font-size:1.05rem;margin-bottom:8px;color:var(--gold)}
+.bx{background:var(--cd);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.r{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.r:last-child{border:0}.r>span{flex:1;min-width:120px}
+button,input{font:inherit;padding:7px 12px;border-radius:7px;border:1px solid var(--line)}
+button{cursor:pointer;background:var(--ink);color:#fff;border:0}button.g{background:#ece7d9;color:var(--ink)}button.d{background:var(--red)}
+#lg{max-width:340px;margin:18vh auto}#lg input{width:100%;margin:8px 0}.h{display:none}.m{color:var(--mut)}
+</style></head><body>
+<div id="lg" class="bx"><h1>دخول المشرف</h1><input id="e" type="email" placeholder="البريد" dir="ltr"><input id="p" type="password" placeholder="كلمة المرور"><button style="width:100%" onclick="login()">دخول</button></div>
+<div id="ap" class="w h"><div class="r"><h1 style="flex:1">لوحة تحكم كليبو</h1><button class="g" onclick="out()">خروج</button></div>
+<div class="bx"><h2>طلبات التوثيق</h2><div id="vr"></div></div>
+<div class="bx"><h2>طلبات الشحن</h2><div id="tp"></div></div>
+<div class="bx"><h2>طلبات السحب</h2><div id="wd"></div></div>
+<div class="bx"><h2>الفيديوهات</h2><div id="vd"></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="../config.js"></script>
+<script>
+const sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY),$=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fail=e=>alert(e.message||e);
+async function boot(){const{data:{session}}=await sb.auth.getSession();let ok=false;
+ if(session){const{data}=await sb.from('profiles').select('is_admin').eq('id',session.user.id).single();ok=!!data?.is_admin}
+ $('lg').classList.toggle('h',ok);$('ap').classList.toggle('h',!ok);if(ok)draw();else if(session)alert('هذا الحساب ليس مشرفاً')}
+async function login(){const{error}=await sb.auth.signInWithPassword({email:$('e').value,password:$('p').value});if(error)return fail(error);boot()}
+async function out(){await sb.auth.signOut();boot()}
+const none='<span class="m">لا توجد طلبات.</span>';
+async function draw(){
+ const[a,b,c,d]=await Promise.all([sb.from('profiles').select('id,username').eq('verify_status','pending'),
+  sb.from('topups').select('*').neq('status','paid').neq('status','rejected').order('id'),
+  sb.from('withdrawals').select('*').eq('status','pending').order('id'),
+  sb.from('videos').select('*').order('created_at',{ascending:false}).limit(100)]);
+ $('vr').innerHTML=a.data?.length?a.data.map(x=>`<div class="r"><span>${esc(x.username)}</span><button onclick="vf('${x.id}',true)">قبول</button><button class="d" onclick="vf('${x.id}',false)">رفض</button></div>`).join(''):none;
+ $('tp').innerHTML=b.data?.length?b.data.map(x=>`<div class="r"><span>${esc(x.username)} — ${x.amount} عملة</span><input id="l${x.id}" value="${esc(x.pay_link||'')}" placeholder="رابط الدفع" dir="ltr"><button onclick="lk(${x.id})">إرسال الرابط</button><button class="g" onclick="pd(${x.id})">تأكيد الدفع</button></div>`).join(''):none;
+ $('wd').innerHTML=c.data?.length?c.data.map(x=>`<div class="r"><span>${esc(x.username)} — ${x.amount} عملة<br><small class="m">${esc(x.method)}</small></span><button onclick="wh(${x.id},true)">تم التحويل</button><button class="d" onclick="wh(${x.id},false)">رفض وإرجاع</button></div>`).join(''):none;
+ $('vd').innerHTML=d.data?.length?d.data.map(x=>`<div class="r"><span>${esc(x.title)} <small class="m">@${esc(x.username)} · ${x.likes} إعجاب · ${x.status==='hidden'?'مخفي':'ظاهر'}</small></span><button class="g" onclick="hv(${x.id},'${x.status==='hidden'?'published':'hidden'}')">${x.status==='hidden'?'إظهار':'إخفاء'}</button><button class="d" onclick="dv(${x.id})">حذف</button></div>`).join(''):none}
+const run=async p=>{const{error}=await p;if(error)fail(error);draw()};
+const vf=(u,ok)=>run(sb.rpc('admin_verify',{u,ok}));
+const lk=id=>run(sb.from('topups').update({pay_link:$('l'+id).value.trim(),status:'link_sent'}).eq('id',id));
+const pd=id=>confirm('تأكيد استلام الدفع وإضافة العملات؟')&&run(sb.rpc('admin_topup_paid',{t:id}));
+const wh=(w,ok)=>run(sb.rpc('admin_withdraw',{w,ok}));
+const hv=(id,s)=>run(sb.from('videos').update({status:s}).eq('id',id));
+const dv=id=>confirm('حذف الفيديو نهائياً؟')&&run(sb.from('videos').delete().eq('id',id));
+boot();
+</script></body></html>
