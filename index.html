@@ -69,13 +69,13 @@ const st={pending:'قيد المراجعة',link_sent:'الرابط جاهز',pa
 async function wallet(){await init0();const[t,w]=await Promise.all([sb.from('topups').select('*').order('id',{ascending:false}),sb.from('withdrawals').select('*').order('id',{ascending:false})]);
  const vs={none:'<button class="b" onclick="ver()">طلب توثيق الحساب</button>',pending:'<span class="it">طلب التوثيق قيد المراجعة</span>',approved:'<span style="color:var(--gold)">✔ حسابك موثّق</span>',rejected:'<button class="g" onclick="ver()">أعد طلب التوثيق</button>'}[prof.verify_status];
  open(`<h3>المحفظة</h3><div class="bal">${prof.coins} عملة</div>${vs}
- <h3 style="margin-top:14px">إيداع (شحن)</h3><input id="ta" type="number" min="1" placeholder="عدد العملات"><button class="b" onclick="top()">طلب شحن</button>
+ <h3 style="margin-top:14px">إيداع (شحن)</h3><input id="ta" type="number" min="1" placeholder="عدد العملات"><button class="b" onclick="topup()">طلب شحن</button>
  ${(t.data||[]).map(x=>`<div class="it">شحن ${x.amount} — ${st[x.status]} ${x.pay_link&&x.status!=='paid'?`<a href="${esc(x.pay_link)}" target="_blank" rel="noopener">ادفع الآن</a>`:''}</div>`).join('')}
  <h3 style="margin-top:14px">سحب</h3><input id="wa" type="number" min="1" placeholder="عدد العملات"><input id="wm" placeholder="طريقة الاستلام (رقم محفظة أو حساب)"><button class="b" onclick="wd()">طلب سحب</button>
  ${(w.data||[]).map(x=>`<div class="it">سحب ${x.amount} — ${st[x.status]}</div>`).join('')}`)}
 async function init0(){const{data}=await sb.from('profiles').select('*').eq('id',me.id).single();prof=data}
 async function ver(){const{error}=await sb.rpc('request_verify');if(error)return fail(error);wallet()}
-async function top(){const a=+$('ta').value;if(a<1)return;const{error}=await sb.from('topups').insert({amount:a});if(error)return fail(error);wallet()}
+async function topup(){const a=+$('ta').value;if(a<1)return;const{error}=await sb.from('topups').insert({amount:a});if(error)return fail(error);wallet()}
 async function wd(){const a=+$('wa').value;if(a<1||!$('wm').value.trim())return fail('أدخل المبلغ وطريقة الاستلام');const{error}=await sb.rpc('request_withdraw',{a,m:$('wm').value.trim()});if(error)return fail(error);init();wallet()}
 init();
 </script></body></html>
