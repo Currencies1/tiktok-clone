@@ -1,2 +1,2 @@
-window.SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
-window.SUPABASE_KEY = "YOUR-ANON-PUBLIC-KEY";
+window.SUPABASE_URL = "https://uofvddokdvwwivfjogru.supabase.co";
+window.SUPABASE_KEY = "sb_publishable_zYK3aKuulD0NkzDJcelBmA_9N3fWJeU";
